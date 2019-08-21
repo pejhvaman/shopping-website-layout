@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        فروشگاه اینترنتی دیجی کالا
+    </title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.flipTimer.js"></script>
+    <link href="css/flipTimer.css" rel="stylesheet">
+</head>
+<body style="background: #eeeeea;margin: 0">
+
+<style>
+    @font-face {
+        font-family: 'yekan';
+        src: url('font/Yekan.ttf') format('truetype'), url('font/Yekan.eot?#iefix') format("embedded-opentype");
+    }
+
+    .yekan {
+        font-family: yekan;
+    }
+
+    .fontssm {
+        font-size: 10pt
+    }
+
+    .fontsm {
+        font-size: 10.5pt
+    }
+
+    .fontmd {
+        font-size: 11pt
+    }
+
+    .fontlg {
+        font-size: 11.5pt
+    }
+
+    div, a, p, span, ul, li {
+        text-align: right;
+        direction: rtl;
+    }
+
+    a {
+        text-decoration: none
+    }
+</style>
+
+<header style="width:100%;height: 98px;margin: 0 auto;background: white">
+    <div id="header" style="width: 1200px;height: 98px;margin: auto">
+        <div id="header_left" style="float: left">
+            <img src="images/logo.png" style="margin-top:15px ;"/>
+        </div>
+        <div id="header_right" style="width: 706px;height:98px;float: right ">
+            <div id="header_right_up" style="height: 30px;margin-top:10px">
+                <span style="width:18px;height: 18px;background: url(images/lock.png);display: block;float: right"></span>
+                <a class="yekan fontsm" href="/login" style="float:right;color:#80807e;margin-right: 10px">فروشگاه
+                    اینترنتی دیجی کالا ، وارد شوید</a>
+                <span style="width:15px;height: 15px;background: url(images/signup.png);display: block;float: right;margin-right: 25px;margin-top: 3px"></span>
+                <a class="yekan fontsm" href="/register" style="float:right;color:#80807e;margin-right: 10px">ثبت نام
+                    کنید</a>
+            </div>
+            <div id="header_right_down" style="width: 750px;height: 40px;margin-top: 5px;position: relative">
+                <div id="header_right_down_shoppingBasket" style="width: 190px;height: 38px;float: right">
+                    <a href="/ShopBasket"
+                       style="width:55px;height: 38px ;background: #00d471 url(images/shopping-cart.png) no-repeat center;border-radius: 0 4px 4px 0;display: block;float: right"></a>
+                    <a class="yekan fontsm" href="/ShopBsket"
+                       style="color:white;padding-right: 20px;line-height: 36px ;background:#008c4b;width: 115px;height: 38px;display: block;float: right;border-radius: 4px 0 0 4px;">
+                        سبد خرید
+                        <span style="width: 25px;height: 25px;background:#00d471;border-radius: 100%;display: block;float:left; margin-top: 6px;margin-left: 30px;line-height: 25px;text-align: center ">0</span>
+                    </a>
+                </div>
+                <input class="yekan fontsm" placeholder="محصول ، دسته یا برند مورد نظرتان را جستجو کنید . . ."
+                       id="search_top"
+                       style="width:465px;height: 34px;float: right;border:1px solid #d5d7d3;margin-right: 10px;padding-right: 10px;border-radius: 0 4px 4px 0 "/>
+                <span style="width: 42px;height: 38px;background: #afb1ae url(images/search.png) no-repeat center;position: absolute;border-radius: 4px 0 0 4px"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    a {
+        color: unset
+    }
+
+    nav {
+        box-shadow: 0 2px 2px #c7cac6;
+        -webkit-box-shadow: 0 2px 2px #c7cac6;
+        -moz-box-shadow: 0 2px 2px #c7cac6;
+        border-top: 1px solid #e8ece7;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    li {
+        list-style: none
+    }
+
+    #menu_top > ul {
+        padding: 0;
+        position: relative;
+        z-index: 3; /*chon arrow sidebar ha z-index=2 dasht be in 3 dadam... */
+    }
+
+    #menu_top > ul > li {
+        float: right;
+        height: 40px;
+    }
+
+    #menu_top > ul > li > a {
+        padding: 0 10px;
+        height: 40px;
+        display: block;
+        line-height: 38px;
+    }
+
+    #menu_top > ul > li > ul {
+        position: absolute;
+        width: 1200px;
+        height: 40px;
+        background: white;
+        right: 0;
+        padding: 0;
+        border-top: 1px solid #e8ece7;
+        box-shadow: 0 2px 2px #c7cac6;
+        line-height: 30px;
+        display: none;
+    }
+
+    #menu_top > ul > li > ul > li {
+        float: right;
+    }
+
+    #menu_top > ul > li > ul > li > a {
+        display: block;
+        height: 40px;
+        line-height: 37px;
+        padding: 0 10px;
+    }
+
+    .menu_down_icon {
+        width: 9px;
+        height: 9px;
+        background: url(images/arrow-down.png);
+        display: inline-block;
+        float: left;
+        margin-top: 15px;
+        margin-right: 8px;
+    }
+
+    .menu3_col {
+        width: 299px;
+        height: 100%;
+        float: right;
+        border-left: 1px solid #e8ece7;
+
+    }
+
+    .menu3_col_ul {
+        padding-right: 10px;
+    }
+
+    .menu3_col_ul li {
+        padding-right: 15px;
+    }
+
+    .menu3_col_ul li:first-child {
+        padding-right: 5px;
+        color: #06cbb0;
+        font-size: 11pt !important;
+    }
+
+    .submenu3 {
+        display: none;
+
+    }
+
+    .menu-active {
+        background: white;
+        box-shadow: 0 -1px 2px #c7cac6;
+    }
+
+    .menu-active > a {
+        color: #cb0027;
+    }
+
+    #menu_top {
+        cursor: pointer;
+    }
+
+</style>
+
+<nav style="width: 100%;height: 40px;background: rgb(247, 248, 250)">
+    <div id="menu_top" style="width:1200px;height: 40px;margin:auto">
+        <ul>
+            <li data-time="1">
+                <a class="yekan fontlg">
+                    کالای دیجیتال
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="2">
+                        <a class="yekan ">
+                            موبایل
+                        </a>
+
+                        <div class="submenu3"
+                             style="width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontsm">
+
+                                <ul class="menu3_col_ul">
+                                    <li><a>
+                                        گوشی موبایل
+                                    </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            Apple
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            Samsung
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <img src="images/mobile.png" style="position: absolute;left:10px;bottom: 10px;"/>
+                        </div>
+
+                    </li>
+                    <li data-time="3">
+                        <a class="yekan fontmd">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3"
+                             style=" width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontsm">
+
+                                <ul class="menu3_col_ul">
+                                    <li>
+                                        <a>
+                                            تبلت
+                                        </a>
+                                    </li>
+                                    <li><a>
+                                        Apple</a>
+                                    </li>
+                                    <li><a>
+                                        Samsung</a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png"
+                                 style="position: absolute;left:10px;bottom: 10px;"/>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="4">
+                <a class="yekan fontlg">
+                    مد و پوشاک
+                    <span class="menu_down_icon"></span>
+                </a>
+
+                <ul>
+                    <li data-time="5">
+                        <a class="yekan ">
+                            مردانه
+                        </a>
+                        <div class="submenu3"
+                             style=" width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontmd">
+
+                                <ul class="menu3_col_ul">
+                                    <li><a>
+                                        لباس مردانه
+                                    </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            کاپشن ، پالتو و بارانی
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            ژاکت و پلیور
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col">
+                                <img src="images/digistyle.png"
+                                     style="position: absolute;width: 215px;margin-right: 40px;margin-top: 10px;"/>
+                                <img src="images/men-closer.jpg"
+                                     style="width: 185px;height: 185px;position: absolute;left: 15px;bottom: 80px;border: 5px solid #00ada7;padding: 5px"/>
+                                <a class="yekan"
+                                   style="background: #00ada7;color: white;width: 205px;height: 60px;position: absolute;display: block;bottom: 5px;left: 15px;text-align: center;font-size: 15pt;line-height: 57px;">انواع
+                                    لباس مردانه</a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li data-time="6">
+                        <a class="yekan fontmd">
+                            زنانه
+                        </a>
+
+
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    #main {
+        width: 1200px;
+        float: right;
+        margin: 15px 0;
+        border-radius: 4px;
+        box-shadow: 2px 2px 3px #d0d0d0;
+        background: white;
+        padding: 30px;
+        margin-right: 45px;
+    }
+
+    .data_box {
+        width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 2px 2px 3px #eaeaea;
+        margin: auto;
+        font-family: yekan;
+        margin-bottom: 15px;
+    }
+
+    .data_box .data_header {
+        background: #888888;
+        font-size: 11pt;
+        color: white;
+        padding-right: 10px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .data_box table {
+        width: 100%;
+    }
+
+    .data_box table tr {
+        text-align: center;
+    }
+
+    .data_box table .data_title {
+        font-size: 10pt;
+        color: #005de8;
+    }
+
+    .data_box table .data_value {
+        font-size: 10pt;
+        color: #5d5d62;
+    }
+
+    .data_content {
+        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(204, 204, 204, 1) 100%); /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CCCCCC', GradientType=1); /* ie6-9 */
+        padding: 10px;
+    }
+
+    .data_content .Buttons {
+        text-align: left;
+    }
+
+    .data_content .Buttons td a {
+        display: block;
+        float: left;
+        width: 100px;
+        height: 30px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 2px 2px 3px #d6d6d6;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+    .data_content .Buttons td a span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #5d5d62;
+        background: #5d5d5d;
+    }
+
+    .data_content .Buttons .changePassword {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #d7d7d7;
+        background: #5d5d5d;
+        font-size: 9.5pt;
+        text-align: center;
+        padding-top: 3px;
+    }
+
+    .data_content .Buttons .editData {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #d7d7d7;
+        background: #00b1bb;
+        font-size: 9.5pt;
+        text-align: center;
+        padding-top: 3px;
+    }
+</style>
+
+<div id="main">
+    <div class="data_box">
+        <div class="data_header">
+            اطلاعات کاربری
+        </div>
+        <div class="data_content">
+            <table>
+                <tr>
+                    <td>
+                    <span class="data_title">
+                        نام و نام خانوادگی :
+                    </span>
+                        <span class="data_value">
+                        پژمان یزدان خواه
+                    </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+آدرس الکترونیک :
+                    </span>
+                        <span class="data_value">
+Email@gmail.com
+                    </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+کد ملی :
+                    </span>
+                        <span class="data_value">
+123456789
+                    </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <span class="data_title">
+شماره تلفن ثابت :
+                    </span>
+                        <span class="data_value">
+021123456789
+                    </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+شماره تلفن همراه :
+                    </span>
+                        <span class="data_value">
+09123456789                    </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+تاریخ تولد :
+                    </span>
+                        <span class="data_value">
+75/10/21
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <span class="data_title">
+شماره کارت :                     </span>
+                        <span class="data_value">
+6037000000000000
+                        </span>
+                    </td>
+                </tr>
+                <tr class="Buttons">
+                    <td colspan="3">
+                        <a>
+                            <span class="changePassword">
+                                تغییر رمز عبور
+                            </span>
+                        </a>
+                        <a>
+                            <span class="editData">
+                                ویرایش اطلاعات
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="data_box">
+        <div class="data_header">
+            گزارش عملکرد
+        </div>
+        <div class="data_content">
+            <table>
+                <tr>
+                    <td>
+                    <span class="data_title">
+تعداد کل سفارشات:
+                    </span>
+                        <span class="data_value">
+a
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+کل دیجی بن دریافتی:                    </span>
+                        <span class="data_value">
+b
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+تعداد نظرات ارسال شده:                    </span>
+                        <span class="data_value">
+c
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <span class="data_title">
+سفارشات در انتظار تایید:                    </span>
+                        <span class="data_value">
+d
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+کل دیجی بن مصرفی:
+                    </span>
+                        <span class="data_value">
+e
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+تعداد نقدهای ارسال شده:
+                    </span>
+                        <span class="data_value">
+f
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <span class="data_title">
+سفارشات در حال پردازش:
+                    </span>
+                        <span class="data_value">
+g
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+کل دیجی بن باطل شده:
+                    </span>
+                        <span class="data_value">
+h
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+تعداد پیغام های خوانده نشده:                    </span>
+                        <span class="data_value">
+i
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <span class="data_title">
+سفارشات ارسال شده:
+                    </span>
+                        <span class="data_value">
+j
+                        </span>
+                    </td>
+                    <td>
+                    <span class="data_title">
+دیجی بن مصرف شده در سفارشات در حال پردازش:
+                    </span>
+                        <span class="data_value">
+k
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <style>
+        #tab {
+            padding: 0;
+            width: 100%;
+            height: 50px;
+            float: right;
+            margin-top: 15px;
+            background: #f9f9f5;
+            border: 1px solid #d3d3cf;
+        }
+
+        #tab li {
+            float: right;
+            width: 130px;
+            height: 100%;
+            font-family: yekan;
+            font-size: 11pt;
+            text-align: center;
+            color: #4f4f4f;
+            line-height: 50px;
+            border-left: 1px solid #e2e2de;
+            position: relative;
+            cursor: pointer;
+        }
+
+        #tab li.activeTab {
+            background: #b7b7b7 !important;
+            border-top: 4px solid #313131;
+            margin-top: -3px;
+            color: #eeeeee;
+        }
+
+    </style>
+
+    <ul id="tab">
+        <li>
+
+            پیغام های من
+        </li>
+        <li>
+            سفارشات من
+        </li>
+        <li class="activeTab">
+
+            لیست مورد علاقه
+        </li>
+        <li>
+
+            نقدهای من
+        </li>
+        <li>
+
+            نظرات من
+        </li>
+        <li>
+
+            دیجی بن های من
+        </li>
+        <li>
+
+            کارت های هدیه من
+        </li>
+        <li>
+
+            اطلاع رسانی ها
+        </li>
+    </ul>
+    <style>
+        #introduction {
+            width: 100%;
+            float: right;
+            background: white;
+            border-right: 1px solid #d3d3cf;
+            border-left: 1px solid #d3d3cf;
+            border-bottom: 1px solid #d3d3cf;
+            font-family: yekan;
+        }
+
+        #introduction section {
+            display: none;
+        }
+
+        #introduction .my_sefaresh {
+            font-size: 11pt;
+            float: right;
+            width: 100%;
+        }
+
+        #introduction .strectch_border {
+            width: 1160px;
+            padding: 20px;
+            float: right;
+        }
+
+        #introduction .strectch_border .order_table {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #b0b0b0;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr {
+            text-align: center;
+            background: #f4f4f4;
+            height: 40px;
+            font-size: 10pt;
+            color: #393939;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr:first-child {
+            text-align: center;
+            background: #b0b0b0;
+            height: 40px;
+            font-size: 10pt;
+            color: white;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr:last-child td {
+            border-bottom: unset;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr > td {
+            border: 1px solid #b0b0b0;
+            border-left: none;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr > td:last-child {
+            border-left: unset;
+        }
+
+        #introduction .strectch_border .order_table .detail_icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            position: relative;
+            right: 45px;
+            background: url(images/chevron-sign-down.png) no-repeat;
+        }
+
+        .detail_icon.activeDetail {
+            background: url(images/up-chevron-button.png) no-repeat !important;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh {
+            background: white !important;
+            display: none;
+        }
+
+        #introduction .strectch_border .order_table > tbody > tr > td {
+            border-bottom: none;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content {
+            padding: 10px;
+            margin: auto;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #b0b0b0;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr {
+            text-align: center;
+            background: #f5f5f5;
+            height: 30px;
+            font-size: 10pt;
+            color: #393939;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr:first-child {
+            text-align: center;
+            background: #d4d4d4;
+            height: 30px;
+            font-size: 10pt;
+            color: #323232;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr:last-child td {
+            border-bottom: unset;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr > td {
+            border-left: 1px solid #b0b0b0;
+            border-bottom: 1px solid #b0b0b0;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr > td:last-child {
+            border-left: unset;
+        }
+
+        #introduction .strectch_border .order_table .more_detail_sefaresh .detail_content > table > tbody > tr > td:first-child {
+            width: 400px;
+        }
+
+        .detail_content h4 {
+            margin: 10px 0 0 0;
+            background: #d4d4d4;
+            font-size: 12pt;
+            font-weight: normal;
+            border-radius: 4px 4px 0 0;
+            padding-right: 10px;
+        }
+
+        .rahgiri {
+            width: 1044px;
+            background: #f5f5f5;
+            border-radius: 0 0 4px 4px;
+            padding: 40px;
+            float: right;
+            margin: 0 0 15px 0;
+        }
+
+        .rahgiri .dashed {
+            width: 60px;
+            height: 2px;
+            float: right;
+        }
+
+        .rahgiri .dashed span {
+            display: block;
+            float: right;
+            width: 10px;
+            height: 2px;
+            background: #0090cd;
+            margin-left: 5px;
+        }
+
+        .rahgiri .steps {
+            padding: 0;
+            float: right;
+            height: 60px;
+        }
+
+        .rahgiri .steps li {
+            float: right;
+            width: 115px;
+            height: 20px;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .rahgiri .steps .circle {
+            display: block;
+            float: right;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 4px solid #b4b4b4;
+            border-radius: 100%;
+            top: -13px;
+        }
+
+        .rahgiri .steps li.Done .circle {
+            border: 4px solid #0090cd;
+            background: #0090cd url(images/slices.png) no-repeat -809px -474px;
+        }
+
+        .rahgiri .steps .line {
+            display: block;
+            float: right;
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: #b4b4b4;
+            right: 35px;
+        }
+
+        .rahgiri .steps li.Done .line {
+            background: #0090cd;
+        }
+
+        .rahgiri .steps .step_title {
+            display: block;
+            float: right;
+            position: absolute;
+            color: #b4b4b4;
+            font-size: 10pt;
+            top: 16px;
+            right: -13px;
+        }
+
+        .rahgiri .steps li.Done .step_title {
+            color: #0090cd;
+        }
+
+        .rahgiri_detail {
+            width: 100%;
+            float: right;
+            border: none !important;
+            margin-bottom: 10px;
+        }
+
+        .rahgiri_detail tr {
+            background: white !important;
+            height: 90px !important;
+        }
+
+        .rahgiri_detail tr td {
+            width: 33%;
+        }
+
+        .rahgiri_detail .onavane_ersal {
+            color: #858585;
+        }
+
+        .rahgiri_detail .tozihate_ersal {
+            color: #0090cd;
+        }
+
+        /* section 1 styles: */
+
+    </style>
+    <div id="introduction">
+        <div class="strectch_border">
+            <section class="my_messages">
+                <table class="order_table" cellspacing="0">
+                    <tr>
+                        <td style="width: 10%">
+                            ردیف
+                        </td>
+                        <td>
+                            عنوان
+                        </td>
+                        <td>
+                            تاریخ
+                        </td>
+                        <td style="width: 30%">
+                            متن
+                        </td>
+                        <td style="width: 20%">
+                            وضعیت
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            پیام سفارش
+                        </td>
+                        <td>
+                            2 مرداد 1397
+                        </td>
+                        <td>
+                            سفارش محصول شما با کد 123456 در حال تایید است .
+                        </td>
+                        <td>
+                            در حال تایید
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section class="my_sefaresh">
+                <table class="order_table" cellspacing="0">
+                    <tr>
+                        <td>
+                            ردیف
+                        </td>
+                        <td>
+                            کد
+                        </td>
+                        <td>
+                            تاریخ
+                        </td>
+                        <td>
+                            مبلغ کد
+                        </td>
+                        <td>
+                            وضعیت
+                        </td>
+                        <td>
+                            عملیات پرداخت
+                        </td>
+                        <td>
+                            نوع
+                        </td>
+                        <td>
+                            جزئیات
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            123456
+                        </td>
+                        <td>
+                            97/4/30
+                        </td>
+                        <td>
+                            500,000
+                        </td>
+                        <td>
+                            تحویل شده
+                        </td>
+                        <td>
+                            پرداخت
+                        </td>
+                        <td>
+                            سفارش
+                        </td>
+                        <td>
+                            <i onclick="showDetail(this)" class="detail_icon"></i>
+                        </td>
+                    </tr>
+                    <tr class="more_detail_sefaresh">
+                        <td colspan="8" style="border: 6px inset #a9a9a9">
+                            <div class="detail_content">
+                                <table cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            کالا
+                                        </td>
+                                        <td>
+                                            تعداد
+                                        </td>
+                                        <td>
+                                            قیمت واحد
+                                        </td>
+                                        <td>
+                                            قیمت کل
+                                        </td>
+                                        <td>
+                                            تخفیف کل
+                                        </td>
+                                        <td>
+                                            مبلغ کل
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            نام کالا
+                                        </td>
+                                        <td>
+                                            x
+                                        </td>
+                                        <td>
+                                            y
+                                        </td>
+                                        <td>
+                                            z
+                                        </td>
+                                        <td>
+                                            w
+                                        </td>
+                                        <td>
+                                            T
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <h4>
+                                    رهگیری سفارش
+                                </h4>
+                                <div class="rahgiri">
+                                    <div style="position: relative;right: 170px;top: 25px;width:70%;float: right;">
+                                        <div class="dashed">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <ul class="steps">
+                                            <li class="Done">
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+                                                تایید سفارش
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+پرداخت
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+پردازش انبار
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+آماده ارسال
+                                            </span>
+                                            </li>
+                                            <li style="width: 40px">
+                                                <span class="circle"></span>
+                                                <span class="step_title">
+تحویل شده
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <div class="dashed">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <table class="rahgiri_detail" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <span class="onavane_ersal">
+                                                روش ارسال :
+                                            </span>
+                                            <span class="tozihate_ersal">
+                                                تحویل اکسپرس دیجی کالا (هزینه ارسال : رایگان (مخصوص سفارش های باارزش بیش از صد هزار تومان ) - سفارش های کمتر از صد هزار  تومان 4500 ثابت
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+زمان ارسال :
+                                            </span>
+                                            <span class="tozihate_ersal">
+بازه :‌ 12-15 تاریخ : 97/5/2
+                                            </span>
+                                        </td>
+                                        <td>
+                                             <span class="onavane_ersal">
+کد مرسوله :
+                                             </span>
+                                            <span class="tozihate_ersal">
+نامشخص
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             <span class="onavane_ersal">
+آدرس تحویل :
+                                             </span>
+                                            <span class="tozihate_ersal">
+سقز،شهرک دانشگاه،خیابان شیخ مظهر
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+تحویل گیرنده :                                              </span>
+                                            <span class="tozihate_ersal">
+پژمان یزدان خواه
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+                                                شماره تماس :
+                                           </span>
+                                            <span class="tozihate_ersal">
+1234567890                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            123456
+                        </td>
+                        <td>
+                            97/4/30
+                        </td>
+                        <td>
+                            500,000
+                        </td>
+                        <td>
+                            تحویل شده
+                        </td>
+                        <td>
+                            پرداخت
+                        </td>
+                        <td>
+                            سفارش
+                        </td>
+                        <td>
+                            <i onclick="showDetail(this)" class="detail_icon"></i>
+                        </td>
+                    </tr>
+                    <tr class="more_detail_sefaresh">
+                        <td colspan="8" style="border: 6px inset #a9a9a9">
+                            <div class="detail_content">
+                                <table cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            کالا
+                                        </td>
+                                        <td>
+                                            تعداد
+                                        </td>
+                                        <td>
+                                            قیمت واحد
+                                        </td>
+                                        <td>
+                                            قیمت کل
+                                        </td>
+                                        <td>
+                                            تخفیف کل
+                                        </td>
+                                        <td>
+                                            مبلغ کل
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            نام کالا
+                                        </td>
+                                        <td>
+                                            x
+                                        </td>
+                                        <td>
+                                            y
+                                        </td>
+                                        <td>
+                                            z
+                                        </td>
+                                        <td>
+                                            w
+                                        </td>
+                                        <td>
+                                            T
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <h4>
+                                    رهگیری سفارش
+                                </h4>
+                                <div class="rahgiri">
+                                    <div style="position: relative;right: 170px;top: 25px;width:70%;float: right;">
+                                        <div class="dashed">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <ul class="steps">
+                                            <li class="Done">
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+                                                تایید سفارش
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+پرداخت
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+پردازش انبار
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="circle"></span>
+                                                <span class="line"></span>
+                                                <span class="step_title">
+آماده ارسال
+                                            </span>
+                                            </li>
+                                            <li style="width: 40px">
+                                                <span class="circle"></span>
+                                                <span class="step_title">
+تحویل شده
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <div class="dashed">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <table class="rahgiri_detail" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <span class="onavane_ersal">
+                                                روش ارسال :
+                                            </span>
+                                            <span class="tozihate_ersal">
+                                                تحویل اکسپرس دیجی کالا (هزینه ارسال : رایگان (مخصوص سفارش های باارزش بیش از صد هزار تومان ) - سفارش های کمتر از صد هزار  تومان 4500 ثابت
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+زمان ارسال :
+                                            </span>
+                                            <span class="tozihate_ersal">
+بازه :‌ 12-15 تاریخ : 97/5/2
+                                            </span>
+                                        </td>
+                                        <td>
+                                             <span class="onavane_ersal">
+کد مرسوله :
+                                             </span>
+                                            <span class="tozihate_ersal">
+نامشخص
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             <span class="onavane_ersal">
+آدرس تحویل :
+                                             </span>
+                                            <span class="tozihate_ersal">
+سقز،شهرک دانشگاه،خیابان شیخ مظهر
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+تحویل گیرنده :                                              </span>
+                                            <span class="tozihate_ersal">
+پژمان یزدان خواه
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onavane_ersal">
+                                                شماره تماس :
+                                           </span>
+                                            <span class="tozihate_ersal">
+1234567890                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <style>
+                .favorite_list {
+                    float: right;
+                    width: 100%;
+                }
+
+                .favorite_list .favorite_folders {
+                    padding: 15px;
+                    background: #e4e4e4;
+                    border-radius: 4px;
+                    border: 1px solid #d6d6d6;
+                    float: right;
+                    width: 1130px;
+                    margin-bottom: 15px;
+                }
+
+                .favorite_list .favorite_folders li {
+                    float: right;
+                    margin-left: 10px;
+                    width: 250px;
+                    height: 50px;
+                    position: relative;
+                }
+
+                .favorite_list .favorite_folders li a {
+                    display: block;
+                }
+
+                .favorite_list .favorite_folders li .folder_icon {
+                    float: right;
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    position: relative;
+                    right: 5px;
+                    top: 9px;
+                    background: url(images/folders.png) no-repeat;
+                }
+
+                .favorite_list .favorite_folders li span {
+                    font-size: 10pt;
+                    color: #5d5d62;
+                    margin-right: 10px;
+                    line-height: 50px;
+                }
+
+                .favorite_list .favorite_folders li.activeFolder {
+                    border-radius: 4px;
+                    background: #f7f7f7;
+                }
+
+                .favorite_list .favorite_folders li.activeFolder span {
+                    color: #f71f00 !important;
+                }
+
+                .favorite_list .favorite_folders li.hoverFolder {
+                    border-radius: 4px;
+                    background: #f7f7f7;
+                }
+
+                .favorite_list .favorite_folders li.hoverFolder span {
+                    color: #f71f00 !important;
+                }
+
+                .favorite_list .favorite_folders li.hoverFolder .folder_edit {
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    left: 10px;
+                    top: 10px;
+                    background: url(images/edit.png) no-repeat;
+                }
+            </style>
+            <section class="favorite_list" style="display: block">
+                <ul class="favorite_folders">
+                    <li>
+                        <a>
+                            <i class="folder_icon" style="background: url(images/folder.png) no-repeat !important;"></i>
+                            <span>
+                            همه پوشه ها
+                        </span>
+                        </a>
+                    </li>
+                    <li class="activeFolder">
+                        <a>
+                            <i class="folder_icon"></i>
+                            <span>
+گوشی
+                        </span>
+                            <i class="folder_edit"></i>
+                        </a>
+                    </li>
+                </ul>
+                <style>
+                    .favorite_list .favo_items {
+                        float: right;
+                        width: 1142px;
+                        padding: 10px;
+                        margin-bottom: 10px;
+                        border: 1px solid #f0f0f0;
+                        border-radius: 4px;
+                        overflow: hidden;
+
+                    }
+
+                    .favorite_list .favo_items .right {
+                        float: right;
+                        width: 110px;
+                    }
+
+                    .favorite_list .favo_items .right img {
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid #d1d1d1;
+                        border-radius: 5px;
+                        padding: 4px;
+                    }
+
+                    .favorite_list .favo_items .left {
+                        float: left;
+                        width: 1000px;
+                    } .favorite_list .favo_items .left p {
+                        float: right;
+                        font-size: 10pt;
+                        color: #5d5d62;
+                    }
+
+                    .favorite_list .favo_items .left_top {
+                        float: left;
+                        width: 1000px;
+                        border-top: 1px solid #c2c2c2;
+                        border-bottom: 1px solid #c2c2c2;
+                    }
+
+                    .favorite_list .favo_items .left_top h4 {
+                        float: right;
+                        font-weight: normal;
+                        color: #5d5d62;
+                        margin: 5px;
+                    }
+
+                    .favorite_list .favo_items .left_top .item_remove {
+                        float: left;
+                        position: relative;
+                        left: 10px;
+                        top: 10px;
+                        margin-right: 10px;
+                        background: url(images/cancel1.png) no-repeat;
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    .favorite_list .favo_items .left_top .item_edit {
+                        float: left;
+                        position: relative;
+                        left: 10px;
+                        top: 10px;
+                        margin-right: 10px;
+                        background: url(images/edit.png) no-repeat;
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                </style>
+                <div class="favo_items">
+                    <div class="right">
+                        <img src="images/Apple-iPhone-X-64GB-Mobile-Phone-1884e6.jpg"/>
+                    </div>
+                    <div class="left">
+                        <div class="left_top">
+                            <h4>
+                                Apple iPhone X-64GB Mobile Phone
+                            </h4>
+                            <i class="item_remove"></i>
+                            <i class="item_edit"></i>
+                        </div>
+                        <p >
+                            توضیحاتی در مورد این محصول که خود کاربر مینویسد...
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.favorite_list .favorite_folders li').hover(function () {
+        $(this).addClass('hoverFolder');
+    }, function () {
+        $(this).removeClass('hoverFolder');
+    });
+
+    function showDetail(tag) {
+        var iTag = $(tag);
+        iTag.toggleClass('activeDetail');
+        var parentTag = iTag.parents('tr');
+        parentTag.next().fadeToggle(400);
+    }
+
+
+    $('#tab li').click(function () {
+        $('#tab li').removeClass('activeTab');
+        $('#introduction section').fadeOut(0);
+        $(this).addClass('activeTab');
+        var index = $(this).index();
+        $('#introduction section').eq(index).fadeIn(200);
+    });
+</script>
+
+
+<style>
+    .footer {
+        width: 100%;
+        height: 310px;
+        float: right;
+        margin-top: 40px;
+    }
+
+    .footer_top {
+        height: 45px;
+        background: #5d5d62;
+    }
+
+    .footer_top_main {
+        width: 1200px;
+        height: 100%;
+        margin: auto;
+    }
+
+    .footer_top_main p {
+        color: white;
+        margin: 0;
+        line-height: 45px;
+        float: right;
+    }
+
+    .footer_contact {
+        width: 642px;
+        height: 45px;
+        padding: 0;
+        float: left;
+    }
+
+    .footer_contact li {
+        width: 214px;
+        height: 100%;
+        float: left;
+    }
+
+    .footer_contact li a {
+        display: block;
+        width: 214px;
+        height: 100%;
+        color: white;
+        font-family: yekan;
+        line-height: 47px;
+        text-align: left;
+    }
+
+    .footer_contact li a i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        float: left;
+        background: url(images/slices.png);
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .footer_main {
+        width: 100%;
+        height: 265px;
+        background: #B4B4B0;
+    }
+</style>
+<footer class="footer">
+    <div class="footer_top">
+        <div class="footer_top_main">
+            <p class="yekan fontlg">
+                7 روز هفته، 24 ساعته پاسخگوی شما هستیم.
+            </p>
+            <ul class="footer_contact">
+
+                <li>
+                    <a style="direction: ltr;text-align: left">
+                        info@digikala.com
+                        <i style="background-position: -317px -418px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        سوالات متداول
+                        <i style="background-position: -357px -418px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        09035016686
+                        <i style="background-position: -397px -418px"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <style>
+        .footer_main_midle {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+        }
+
+        .footer_main_midle_right {
+            width: 250px;
+            height: 100%;
+            float: right;
+        }
+
+        .footer_main_midle_between {
+            width: 250px;
+            height: 100%;
+            float: right;
+        }
+
+        .footer_main_midle_left {
+            width: 570px;
+            height: 100%;
+            float: left;
+        }
+
+        .footer_main_midle_right ul, .footer_main_midle_between ul {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .footer_main_midle_right ul li a {
+            font-family: yekan;
+            color: #4a4b51;
+
+        }
+
+        .footer_main_midle_between ul li a {
+            font-family: yekan;
+            color: #4a4b51;
+        }
+
+        .footer_main_midle_left input {
+            width: 430px;
+            height: 37px;
+            border: 1px solid #b3b3bc;
+            border-radius: 4px;
+        }
+
+        .footer_main_midle_left span {
+            display: block;
+            width: 114px;
+            height: 41px;
+            float: left;
+            margin-left: 5px;
+            font-family: yekan;
+            color: white;
+            line-height: 42px;
+            background: #00b6bb;
+            border-radius: 4px;
+            box-shadow: 2px 2px 2px #c7cac6;
+            text-align: center;
+        }
+
+        .footer_main_midle_left i {
+            display: block;
+            width: 29px;
+            height: 29px;
+            background: url(images/slices.png);
+        }
+
+        .footer_main_midle_left a {
+            display: block;
+
+        }
+
+        .footer_main_midle_left .footer_img {
+            width: 150px;
+            height: 48px;
+            float: left;
+            margin: 50px 10px 0 0;
+        }
+
+        .footer_img img {
+            width: 150px;
+            height: 48px;
+        }
+
+        .footer_social {
+            display: block;
+            float: right;
+            width: 29px;
+            height: 29px;
+            margin-left: 8px;
+            margin-top: 60px;
+        }
+
+        .footer_main_midle_left .email_reg:hover {
+            background: #0044bb;
+        }
+
+        .footer_main_midle_left .email_reg {
+            transition: background-color 500ms ease;
+        }
+
+    </style>
+    <div class="footer_main">
+        <div class="footer_main_midle">
+            <div class="footer_main_midle_right">
+                <ul>
+
+                    <li>
+                        <a>
+                            <h3 style="color: black">
+                                راهنمای خرید از دیجی کالا
+                            </h3>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            ثبت سفارش
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            رویه های ارسال سفارش
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            معرفی دیجی بن
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main_midle_between">
+                <ul>
+
+                    <li>
+                        <a>
+                            <h3 style="color: black">
+                                خدمات مشتریان
+                            </h3>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            پاسخ به پرسش های متداول
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            رویه های بازگرداندن کالا
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            شرایط استفاده
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            حریم خصوصی
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main_midle_left">
+                <h3 class="yekan">
+                    از تخفیف‌ها و جدیدترین‌های دیجی کالا باخبر شوید!
+                </h3>
+                <input class="yekan" placeholder="آدرس ایمیل خود را وارد کنید"/>
+                <span class="email_reg">
+                    تایید ایمیل
+                   </span>
+                <a class="footer_img">
+                    <img src="images/apple%20footer.png"/>
+                </a>
+                <a class="footer_img">
+                    <img src="images/cafebazaar-digikala.png"/>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-618px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-576px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-536px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-494px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-452px -621px"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+    var footer_img = $('.footer_img img');
+    footer_img.css('opacity', 0.8);
+    footer_img.hover(function () {
+        $(this).css('opacity', 1);
+    }, function () {
+        $(this).css('opacity', 0.8);
+    });
+
+
+    var timer = {};
+
+    $('#menu_top li').hover(function () {
+        var tag = $(this);
+        var timeAttr = tag.index('li');
+        clearTimeout(timer[timeAttr]);
+        timer[timeAttr] = setTimeout(function () {
+            $('> ul', tag).fadeIn(0);
+            tag.addClass('menu-active');
+            $('> .submenu3', tag).fadeIn(0);
+        }, 500)
+    }, function () {
+        var tag = $(this);
+        var timeAttr = tag.index('li');
+        clearTimeout(timer[timeAttr]);
+        timer[timeAttr] = setTimeout(function () {
+            $('> ul', tag).fadeOut(0);
+            tag.removeClass('menu-active');
+            $('> .submenu3', tag).fadeOut(0);
+        }, 600);
+    });
+
+</script>
+
+</body>
+</html>

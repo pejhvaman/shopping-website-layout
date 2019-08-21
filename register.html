@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+فروشگاه اینترنتی دیجی کالا
+    </title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.flipTimer.js"></script>
+    <link href="css/flipTimer.css" rel="stylesheet">
+</head>
+<body style="background: #eeeeea;margin: 0">
+
+<style>
+    @font-face {
+        font-family: 'yekan';
+        src: url('font/Yekan.ttf') format('truetype'), url('font/Yekan.eot?#iefix') format("embedded-opentype");
+    }
+
+    .yekan {
+        font-family: yekan;
+    }
+
+    .fontssm {
+        font-size: 10pt
+    }
+
+    .fontsm {
+        font-size: 10.5pt
+    }
+
+    .fontmd {
+        font-size: 11pt
+    }
+
+    .fontlg {
+        font-size: 11.5pt
+    }
+
+    div, a, p, span, ul, li {
+        text-align: right;
+        direction: rtl;
+    }
+
+    a {
+        text-decoration: none
+    }
+</style>
+
+<header style="width:100%;height: 98px;margin: 0 auto;background: white">
+    <div id="header" style="width: 1200px;height: 98px;margin: auto">
+        <div id="header_left" style="float: left">
+            <img src="images/logo.png" style="margin-top:15px ;"/>
+        </div>
+        <div id="header_right" style="width: 706px;height:98px;float: right ">
+            <div id="header_right_up" style="height: 30px;margin-top:10px">
+                <span style="width:18px;height: 18px;background: url(images/lock.png);display: block;float: right"></span>
+                <a class="yekan fontsm" href="/login" style="float:right;color:#80807e;margin-right: 10px">فروشگاه
+                    اینترنتی دیجی کالا ، وارد شوید</a>
+                <span style="width:15px;height: 15px;background: url(images/signup.png);display: block;float: right;margin-right: 25px;margin-top: 3px"></span>
+                <a class="yekan fontsm" href="/register" style="float:right;color:#80807e;margin-right: 10px">ثبت نام
+                    کنید</a>
+            </div>
+            <div id="header_right_down" style="width: 750px;height: 40px;margin-top: 5px;position: relative">
+                <div id="header_right_down_shoppingBasket" style="width: 190px;height: 38px;float: right">
+                    <a href="/ShopBasket"
+                       style="width:55px;height: 38px ;background: #00d471 url(images/shopping-cart.png) no-repeat center;border-radius: 0 4px 4px 0;display: block;float: right"></a>
+                    <a class="yekan fontsm" href="/ShopBsket"
+                       style="color:white;padding-right: 20px;line-height: 36px ;background:#008c4b;width: 115px;height: 38px;display: block;float: right;border-radius: 4px 0 0 4px;">
+                        سبد خرید
+                        <span style="width: 25px;height: 25px;background:#00d471;border-radius: 100%;display: block;float:left; margin-top: 6px;margin-left: 30px;line-height: 25px;text-align: center ">0</span>
+                    </a>
+                </div>
+                <input class="yekan fontsm" placeholder="محصول ، دسته یا برند مورد نظرتان را جستجو کنید . . ."
+                       id="search_top"
+                       style="width:465px;height: 34px;float: right;border:1px solid #d5d7d3;margin-right: 10px;padding-right: 10px;border-radius: 0 4px 4px 0 "/>
+                <span style="width: 42px;height: 38px;background: #afb1ae url(images/search.png) no-repeat center;position: absolute;border-radius: 4px 0 0 4px"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    a {
+        color: unset
+    }
+
+    nav {
+        box-shadow: 0 2px 2px #c7cac6;
+        -webkit-box-shadow: 0 2px 2px #c7cac6;
+        -moz-box-shadow: 0 2px 2px #c7cac6;
+        border-top: 1px solid #e8ece7;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    li {
+        list-style: none
+    }
+
+    #menu_top > ul {
+        padding: 0;
+        position: relative;
+        z-index: 3; /*chon arrow sidebar ha z-index=2 dasht be in 3 dadam... */
+    }
+
+    #menu_top > ul > li {
+        float: right;
+        height: 40px;
+    }
+
+    #menu_top > ul > li > a {
+        padding: 0 10px;
+        height: 40px;
+        display: block;
+        line-height: 38px;
+    }
+
+    #menu_top > ul > li > ul {
+        position: absolute;
+        width: 1200px;
+        height: 40px;
+        background: white;
+        right: 0;
+        padding: 0;
+        border-top: 1px solid #e8ece7;
+        box-shadow: 0 2px 2px #c7cac6;
+        line-height: 30px;
+        display: none;
+    }
+
+    #menu_top > ul > li > ul > li {
+        float: right;
+    }
+
+    #menu_top > ul > li > ul > li > a {
+        display: block;
+        height: 40px;
+        line-height: 37px;
+        padding: 0 10px;
+    }
+
+    .menu_down_icon {
+        width: 9px;
+        height: 9px;
+        background: url(images/arrow-down.png);
+        display: inline-block;
+        float: left;
+        margin-top: 15px;
+        margin-right: 8px;
+    }
+
+    .menu3_col {
+        width: 299px;
+        height: 100%;
+        float: right;
+        border-left: 1px solid #e8ece7;
+
+    }
+
+    .menu3_col_ul {
+        padding-right: 10px;
+    }
+
+    .menu3_col_ul li {
+        padding-right: 15px;
+    }
+
+    .menu3_col_ul li:first-child {
+        padding-right: 5px;
+        color: #06cbb0;
+        font-size: 11pt !important;
+    }
+
+    .submenu3 {
+        display: none;
+
+    }
+
+    .menu-active {
+        background: white;
+        box-shadow: 0 -1px 2px #c7cac6;
+    }
+
+    .menu-active > a {
+        color: #cb0027;
+    }
+
+    #menu_top {
+        cursor: pointer;
+    }
+
+</style>
+
+<nav style="width: 100%;height: 40px;background: rgb(247, 248, 250)">
+    <div id="menu_top" style="width:1200px;height: 40px;margin:auto">
+        <ul>
+            <li data-time="1">
+                <a class="yekan fontlg">
+                    کالای دیجیتال
+                    <span class="menu_down_icon"></span>
+                </a>
+                <ul>
+                    <li data-time="2">
+                        <a class="yekan ">
+                            موبایل
+                        </a>
+
+                        <div class="submenu3"
+                             style="width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontsm">
+
+                                <ul class="menu3_col_ul">
+                                    <li><a>
+                                        گوشی موبایل
+                                    </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            Apple
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            Samsung
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <img src="images/mobile.png" style="position: absolute;left:10px;bottom: 10px;"/>
+                        </div>
+
+                    </li>
+                    <li data-time="3">
+                        <a class="yekan fontmd">
+                            تبلت و کتابخوان
+                        </a>
+                        <div class="submenu3"
+                             style=" width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontsm">
+
+                                <ul class="menu3_col_ul">
+                                    <li>
+                                        <a>
+                                            تبلت
+                                        </a>
+                                    </li>
+                                    <li><a>
+                                        Apple</a>
+                                    </li>
+                                    <li><a>
+                                        Samsung</a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <img src="images/tablet-ebook-reader.png"
+                                 style="position: absolute;left:10px;bottom: 10px;"/>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li data-time="4">
+                <a class="yekan fontlg">
+                    مد و پوشاک
+                    <span class="menu_down_icon"></span>
+                </a>
+
+                <ul>
+                    <li data-time="5">
+                        <a class="yekan ">
+                            مردانه
+                        </a>
+                        <div class="submenu3"
+                             style=" width: 100%;height: 360px;position: absolute;background: white;border-top: 1px solid #e8ece7;right: 0">
+                            <div class="menu3_col yekan fontmd">
+
+                                <ul class="menu3_col_ul">
+                                    <li><a>
+                                        لباس مردانه
+                                    </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            کاپشن ، پالتو و بارانی
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            ژاکت و پلیور
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col"></div>
+                            <div class="menu3_col">
+                                <img src="images/digistyle.png"
+                                     style="position: absolute;width: 215px;margin-right: 40px;margin-top: 10px;"/>
+                                <img src="images/men-closer.jpg"
+                                     style="width: 185px;height: 185px;position: absolute;left: 15px;bottom: 80px;border: 5px solid #00ada7;padding: 5px"/>
+                                <a class="yekan"
+                                   style="background: #00ada7;color: white;width: 205px;height: 60px;position: absolute;display: block;bottom: 5px;left: 15px;text-align: center;font-size: 15pt;line-height: 57px;">انواع
+                                    لباس مردانه</a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li data-time="6">
+                        <a class="yekan fontmd">
+                            زنانه
+                        </a>
+
+
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    #main {
+        width: 1200px;
+        margin: 15px auto
+    }
+
+    #register_content {
+        width: 985px;
+        height: 530px;
+        margin: 40px auto;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px #bcbcbc;
+    }
+
+    #register_content_right {
+        width: 500px;
+        height: 530px;
+        background: white;
+        float: right;
+    }
+
+    #register_content_left {
+        width: 485px;
+        height: 530px;
+        background: #f6f6f6;
+        float: right;
+    }
+
+    #register_content_right h1 {
+        width: 445px;
+        height: 75px;
+        margin: auto;
+        font-family: yekan;
+        color: #626262;
+        padding-right: 50px;
+        line-height: 70px;
+        font-weight: normal;
+
+    }
+
+    #register_form {
+        width: 100%;
+        height: 455px;
+
+    }
+
+    #register_form_main {
+        width: 480px;
+        height: 390px;
+        margin: auto;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    #register_form_main label {
+        display: block;
+        width: 390px;
+        height: 30px;
+        font-family: yekan;
+        font-size: 11pt;
+        color: #646464;
+        margin-right: 40px;
+        margin-top: 20px;
+    }
+
+    #register_form_main .info_input {
+        width: 390px;
+        height: 40px;
+        margin-right: 40px;
+        border-radius: 4px;
+        border: 1px solid #c3c3c3;
+        font-family: yekan;
+        direction: ltr;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    #register_form_main p {
+        width: 370px;
+        font-family: yekan;
+        margin: 10px 70px 20px 0;
+        color: #4a4b51;
+    }
+
+    #register_form_main p a {
+        color: #009fea;
+    }
+
+    #register_form_main #reg_btn {
+        width: 390px;
+        height: 50px;
+        margin: auto;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 2px 2px 3px #c3c3c3;
+    }
+
+    #register_form_main #reg_btn:hover #reg_btn_icon span {
+        background: #00a6ad;
+    }
+
+    #register_form_main #reg_btn #reg_btn_icon span {
+        transition: background-color 500ms ease;
+    }
+
+    #register_form_main #reg_btn:hover #reg_btn_text {
+        background: #008489;
+    }
+
+    #register_form_main #reg_btn #reg_btn_text {
+        transition: background-color 500ms ease;
+    }
+
+    #register_form_main #reg_btn #reg_btn_icon {
+        display: block;
+        width: 65px;
+        height: 100%;
+        float: right;
+    }
+
+    #register_form_main #reg_btn #reg_btn_icon span {
+        display: block;
+        width: 65px;
+        height: 100%;
+        float: right;
+        background: #00b6bb
+    }
+
+    #register_form_main #reg_btn #reg_btn_icon span i {
+        margin: 0;
+        display: block;
+        width: 30px;
+        height: 25px;
+        background: url(images/slices.png) no-repeat -1317px -86px;
+        position: relative;
+        right: 22px;
+        top: 9px
+    }
+
+    #register_form_main #reg_btn #reg_btn_text {
+        display: block;
+        width: 325px;
+        height: 100%;
+        background: #00969c;
+        font-family: yekan;
+        color: #eeeef9;
+        float: right;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    #register_loginpart {
+        width: 70%;
+        height: 63px;
+        margin: auto;
+    }
+
+    #register_loginpart p {
+        font-family: yekan;
+        text-align: center;
+        font-size: 14pt;
+        color: #5d5d62;
+        margin: 0;
+        margin-top: 14px;
+    }
+
+    #register_loginpart p a {
+        color: #009fea;
+    }
+
+    #register_content_left_icon {
+        width: 100%;
+        height: 250px;
+
+    }
+
+    #register_content_left_icon i {
+        display: inline-block;
+        width: 70px;
+        height: 60px;
+        background: url(images/slices.png) no-repeat -867px -84px;
+        position: relative;
+        right: 215px;
+        top: 90px;
+    }
+
+    #register_content_left_op {
+        height: 280px;
+        width: 100%;
+    }
+
+    #register_content_left_op ul {
+        padding: 0;
+        width: 400px;
+        height: 100%;
+        margin: auto;
+    }
+
+    #register_content_left_op ul li {
+        width: 100%;
+        height: 40px;
+        font-family: yekan;
+        line-height: 35px;
+        color: #8e8f89;
+    }
+
+    #register_content_left_op ul li i {
+        display: block;
+        float: right;
+        width: 22px;
+        height: 22px;
+        margin-left: 15px;
+        background: url(images/slices.png) no-repeat;
+        position: relative;
+        top: 3px;
+        font-size: 9pt;
+    }
+
+    .reg_checkbox_input {
+        width: 22px;
+        height: 22px;
+        float: right;
+        position: relative;
+        top: 4px;
+        right: 40px;
+        margin: 0;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    .register_form_main_condition {
+        position: relative;
+    }
+
+    .reg_checkbox_label {
+        position: absolute;
+        display: block;
+        float: right;
+        width: 20px !important;
+        height: 20px !important;
+        border: 1px solid #626262;
+        top: 4px;
+        right: 41px;
+        margin: 0 !important;
+        border-radius: 2px;
+
+    }
+
+    .checked {
+        background: #00969c url(images/slices.png) no-repeat -671px -119px;
+        border: 1px solid #00969c;
+    }
+</style>
+
+<div id="main">
+    <div id="register_content">
+        <div id="register_content_right">
+            <h1>به دیجی کالا بپیوندید</h1>
+            <div id="register_form">
+                <div id="register_form_main">
+                    <div id="register_form_main_email">
+                        <label>
+                            شماره همراه یا پست الکترونیک
+                        </label>
+                        <input class="info_input" placeholder="Phone number or Email">
+                    </div>
+                    <div id="register_form_main_password">
+                        <label>
+                            کلمه عبور
+                        </label>
+                        <input class="info_input" type="password" placeholder="Password">
+                    </div>
+                    <div class="register_form_main_condition">
+                        <label class="reg_checkbox_label"></label>
+                        <input class="reg_checkbox_input" type="checkbox"/>
+                        <p>
+                            <a href="/privacy">حریم خصوصی </a>
+                            و
+                            <a>شرایط و قوانین </a>
+                            استفاده از سرویس های سایت دیجی‌کالا را مطالعه نموده و با کلیه موارد
+                            آن موافقم.
+                        </p>
+                    </div>
+                    <div id="reg_btn">
+                        <a id="reg_btn_icon">
+                            <span>
+                                <i></i>
+                            </span>
+                        </a>
+                        <a id="reg_btn_text">
+                            ثبت نام در دیجی کالا
+                        </a>
+                    </div>
+                </div>
+                <div id="register_loginpart">
+                    <p>
+                        قبلا در دیجی کالا ثبت نام کرده اید؟
+                        <a>
+                            ورود به دیجی کالا
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="register_content_left">
+            <div id="register_content_left_icon">
+                <i>
+                </i>
+            </div>
+            <div id="register_content_left_op">
+                <ul>
+                    <li>
+                        <i style="background-position: -1283px -202px;"></i>
+                        سریعتر و ساده تر خرید کنید
+                    </li>
+                    <li>
+                        <i style="background-position: -1283px -241px;"></i>
+                        به سادگی سوابق خرید و فعالیت های خود را مدیریت کنید
+                    </li>
+                    <li>
+                        <i style="background-position: -1283px -280px;"></i>
+                        لیست علاقمندی های خود را بسازید و تغییرات آنها را دنبال کنید
+                    </li>
+                    <li>
+                        <i style="background-position: -1283px -320px;"></i>
+                        نقد، بررسی و نظرات خود را با دیگران به اشتراک گذارید
+                    </li>
+                    <li>
+                        <i style="background-position: -1283px -363px;"></i>
+                        در جریان فروش های ویژه و قیمت روز محصولات قرار بگیرید
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('.reg_checkbox_input').click(function () {
+        if ($(this).is(':checked')) {
+            $(this).parents('.register_form_main_condition').find('.reg_checkbox_label').addClass('checked');
+        } else {
+            $(this).parents('.register_form_main_condition').find('.reg_checkbox_label').removeClass('checked');
+        }
+    });
+
+</script>
+<style>
+    .footer {
+        width: 100%;
+        height: 310px;
+        float: right;
+        margin-top: 40px;
+    }
+
+    .footer_top {
+        height: 45px;
+        background: #5d5d62;
+    }
+
+    .footer_top_main {
+        width: 1200px;
+        height: 100%;
+        margin: auto;
+    }
+
+    .footer_top_main p {
+        color: white;
+        margin: 0;
+        line-height: 45px;
+        float: right;
+    }
+
+    .footer_contact {
+        width: 642px;
+        height: 45px;
+        padding: 0;
+        float: left;
+    }
+
+    .footer_contact li {
+        width: 214px;
+        height: 100%;
+        float: left;
+    }
+
+    .footer_contact li a {
+        display: block;
+        width: 214px;
+        height: 100%;
+        color: white;
+        font-family: yekan;
+        line-height: 47px;
+        text-align: left;
+    }
+
+    .footer_contact li a i {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        float: left;
+        background: url(images/slices.png);
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .footer_main {
+        width: 100%;
+        height: 265px;
+        background: #B4B4B0;
+    }
+</style>
+<footer class="footer">
+    <div class="footer_top">
+        <div class="footer_top_main">
+            <p class="yekan fontlg">
+                7 روز هفته، 24 ساعته پاسخگوی شما هستیم.
+            </p>
+            <ul class="footer_contact">
+
+                <li>
+                    <a style="direction: ltr;text-align: left">
+                        info@digikala.com
+                        <i style="background-position: -317px -418px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        سوالات متداول
+                        <i style="background-position: -357px -418px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        09035016686
+                        <i style="background-position: -397px -418px"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <style>
+        .footer_main_midle {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+        }
+
+        .footer_main_midle_right {
+            width: 250px;
+            height: 100%;
+            float: right;
+        }
+
+        .footer_main_midle_between {
+            width: 250px;
+            height: 100%;
+            float: right;
+        }
+
+        .footer_main_midle_left {
+            width: 570px;
+            height: 100%;
+            float: left;
+        }
+
+        .footer_main_midle_right ul, .footer_main_midle_between ul {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .footer_main_midle_right ul li a {
+            font-family: yekan;
+            color: #4a4b51;
+
+        }
+
+        .footer_main_midle_between ul li a {
+            font-family: yekan;
+            color: #4a4b51;
+        }
+
+        .footer_main_midle_left input {
+            width: 430px;
+            height: 37px;
+            border: 1px solid #b3b3bc;
+            border-radius: 4px;
+        }
+
+        .footer_main_midle_left span {
+            display: block;
+            width: 114px;
+            height: 41px;
+            float: left;
+            margin-left: 5px;
+            font-family: yekan;
+            color: white;
+            line-height: 42px;
+            background: #00b6bb;
+            border-radius: 4px;
+            box-shadow: 2px 2px 2px #c7cac6;
+            text-align: center;
+        }
+
+        .footer_main_midle_left i {
+            display: block;
+            width: 29px;
+            height: 29px;
+            background: url(images/slices.png);
+        }
+
+        .footer_main_midle_left a {
+            display: block;
+
+        }
+
+        .footer_main_midle_left .footer_img {
+            width: 150px;
+            height: 48px;
+            float: left;
+            margin: 50px 10px 0 0;
+        }
+
+        .footer_img img {
+            width: 150px;
+            height: 48px;
+        }
+
+        .footer_social {
+            display: block;
+            float: right;
+            width: 29px;
+            height: 29px;
+            margin-left: 8px;
+            margin-top: 60px;
+        }
+
+        .footer_main_midle_left .email_reg:hover {
+            background: #0044bb;
+        }
+
+        .footer_main_midle_left .email_reg {
+            transition: background-color 500ms ease;
+        }
+
+    </style>
+    <div class="footer_main">
+        <div class="footer_main_midle">
+            <div class="footer_main_midle_right">
+                <ul>
+
+                    <li>
+                        <a>
+                            <h3 style="color: black">
+                                راهنمای خرید از دیجی کالا
+                            </h3>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            ثبت سفارش
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            رویه های ارسال سفارش
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            معرفی دیجی بن
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main_midle_between">
+                <ul>
+
+                    <li>
+                        <a>
+                            <h3 style="color: black">
+                                خدمات مشتریان
+                            </h3>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            پاسخ به پرسش های متداول
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            رویه های بازگرداندن کالا
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            شرایط استفاده
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            حریم خصوصی
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main_midle_left">
+                <h3 class="yekan">
+                    از تخفیف‌ها و جدیدترین‌های دیجی کالا باخبر شوید!
+                </h3>
+                <input class="yekan" placeholder="آدرس ایمیل خود را وارد کنید"/>
+                <span class="email_reg">
+                    تایید ایمیل
+                   </span>
+                <a class="footer_img">
+                    <img src="images/apple%20footer.png"/>
+                </a>
+                <a class="footer_img">
+                    <img src="images/cafebazaar-digikala.png"/>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-618px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-576px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-536px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-494px -621px"></i>
+                </a>
+                <a class="footer_social">
+                    <i style="background-position:-452px -621px"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+    var footer_img = $('.footer_img img');
+    footer_img.css('opacity', 0.8);
+    footer_img.hover(function () {
+        $(this).css('opacity', 1);
+    }, function () {
+        $(this).css('opacity', 0.8);
+    });
+
+
+    var timer = {};
+
+    $('#menu_top li').hover(function () {
+        var tag = $(this);
+        var timeAttr = tag.index('li');
+        clearTimeout(timer[timeAttr]);
+        timer[timeAttr] = setTimeout(function () {
+            $('> ul', tag).fadeIn(0);
+            tag.addClass('menu-active');
+            $('> .submenu3', tag).fadeIn(0);
+        }, 500)
+    }, function () {
+        var tag = $(this);
+        var timeAttr = tag.index('li');
+        clearTimeout(timer[timeAttr]);
+        timer[timeAttr] = setTimeout(function () {
+            $('> ul', tag).fadeOut(0);
+            tag.removeClass('menu-active');
+            $('> .submenu3', tag).fadeOut(0);
+        }, 600);
+    });
+
+</script>
+
+</body>
+</html>
